@@ -14,7 +14,7 @@
         "${file}",
         "-g",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
       ],
       "group": "build",
       "problemMatcher": {
@@ -59,9 +59,11 @@
     },
     {
       "label": "execute",
-      "command": "${fileDirname}\\${fileBasenameNoExtension}",
+      "command": "cmd",
       "group": "test",
       "args": [
+        "/C",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
       ]
     },
     {
