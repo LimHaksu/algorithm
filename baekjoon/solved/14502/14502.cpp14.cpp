@@ -6,7 +6,7 @@ void dfs(vector<vector<int>>& arr, int r, int c) {
 	if (r < 0 || r >= arr.size() || c < 0 || c >= arr[0].size()) {
 		return;
 	}
-	if (arr[r][c] == 1 || arr[r][c] == 3 || arr[r][c] == 4) {
+	if (arr[r][c] == 1 || arr[r][c] == 3) {
 		return;
 	}
 	arr[r][c] = 3;
@@ -36,28 +36,25 @@ int count_area(vector<vector<int>>&arr) {
 	return count;
 }
 //벽 세우기
-void wall(vector<vector<int>>& arr, int& count, int& max, int r, int c) {
-	if (arr[r][c] == 0) {
-		arr[r][c] = 4;
-		count++;
-		if (count == 3) {
-			vector<vector<int>> temp = arr;
-			virus(temp);
-			int safe = count_area(temp);
-			if (safe > max)
-				max = safe;
-		}
-		else{
-			for (int i = r; i < arr.size(); ++i) {
-				for (int j = 0; j < arr[0].size(); ++j) {
-					if(i > r || j > c)
-						wall(arr, count, max, i, j);
-				}
-			}
-		}
-		arr[r][c] = 0;
-		count--;
-	}
+void wall(vector<vector<int>>& arr, int count, int& max) {
+    if (count == 3) {
+        vector<vector<int>> temp = arr;
+        virus(temp);
+        int safe = count_area(temp);
+        if (safe > max)
+            max = safe;
+    }
+    else{
+        for (int i = 0; i < arr.size(); ++i) {
+            for (int j = 0; j < arr[0].size(); ++j) {
+                if(arr[i][j] == 0){
+                    arr[i][j] = 1;
+                    wall(arr, count+1, max);
+                    arr[i][j] = 0;
+                }
+            }
+        }
+    }
 	return;
 }
 int main() {
@@ -73,9 +70,9 @@ int main() {
 	for (int i = 0; i < n; ++i) {
 		for (int j = 0; j < m; ++j) {
 			if (arr[i][j] == 0) {
-				vector<vector<int>> temp = arr;
-				int count = 0;
-				wall(temp, count, max, i, j);
+				arr[i][j] = 1;
+				wall(arr, 1, max);
+                arr[i][j] = 0;
 			}
 		}
 	}
