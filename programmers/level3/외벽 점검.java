@@ -56,38 +56,6 @@ class Solution {
 					}
 				}
     		}
-    		// 반시계 방향
-    		for(int s = weakPoint.length-1; s >= weakPoint.length/2; --s) {
-    			int count = 0; // tempWeak 카운트
-    			idxIdx = 0;
-    			int end = s-(weakPoint.length/2-1);
-				for (int i = s; i >= end; --i) {
-					count++;
-					int current = weakPoint[i];
-					int d = dist[idx[idxIdx++]];
-					while (d-- > 0) {
-						if (i == end) {
-							break;
-						}
-						current--;
-						if(current == -1) {
-							current = nn-1;
-						}
-						if (current == weakPoint[i - 1]) {
-							i--;
-							count++;
-						}
-					}
-					if (idxIdx == idx.length) {
-						break;
-					}
-				}
-				if(count >= weakPoint.length/2) {
-					if(idxIdx < answer) {
-						answer = idxIdx;
-					}
-				}
-    		}
     		return;
     	}
     	for(int i = 0; i < checked.length; ++i) {
