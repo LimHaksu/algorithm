@@ -1,6 +1,6 @@
 ### 자바스크립트 알고리즘용 도구들...
 
-### set
+## set
 ```javascript
 const set = new Set();  
 
@@ -17,7 +17,7 @@ set.forEach(e=>{
 })  
 ```  
   
-### map
+## map
 ```javascript
 const map = new Map();
 
@@ -37,12 +37,12 @@ for(value in map.values()){
     // todo...
 }
 
-for([key, value] in map.entires()){
+for([key, value] in map.entries()){
     // todo...
 }
 ```
   
-### stack
+## stack
 ```javascript
 let stack = [];
 
@@ -53,7 +53,7 @@ let top = stack.pop();
 let top = stack[stack.length-1];
 ```
 
-### queue
+## queue
 ```javascript
 let queue = [];
 
@@ -64,7 +64,22 @@ let front = queue.shift();
 let front = queue[0];
 ```
 
-### priority queue
+## priority queue
 ```javascript
 ???
+```
+
+## sort
+```javascript
+let arr = [{num1:1, num2:2},{num1:1, num2:1}];
+// num1 내림차순정렬, num1이 같으면 num2 오름차순 정렬
+arr.sort((a, b, ) => {
+    if (a.num1 > b.num2) {
+        return -1;
+    } else if (a.num1 < b.num1) {
+        return 1;
+    } else {
+        return a.num2 - b.num2;
+    }
+});
 ```
