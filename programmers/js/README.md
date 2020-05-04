@@ -1,5 +1,11 @@
 ### 자바스크립트 알고리즘용 도구들...
 
+## Array
+```javascript
+// n행 m열 배열 생성
+let arr = Array.from(Array(n), ()=>Array(m));
+```
+
 ## set
 ```javascript
 const set = new Set();  
