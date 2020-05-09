@@ -89,3 +89,13 @@ arr.sort((a, b, ) => {
     }
 });
 ```
+
+## string compare
+```javascript
+let a = 'abc';
+let b = 'abd';
+// 사전순 a가 앞  ==> -1
+// 사전순 a가 뒤  ==> 1
+// a == b ==> 0
+a.localeCompare(b); // -1
+```
