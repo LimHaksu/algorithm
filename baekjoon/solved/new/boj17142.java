@@ -58,10 +58,6 @@ public class boj17142 {
 					q.add(new int[] {r,c});
 				}
 			}
-			int[][] tempOrigin = new int[temp.length][];
-			for(int i = 0; i < temp.length; ++i) {
-				tempOrigin[i] = temp[i].clone();
-			}
 			int time = 0;
 			w: while(!q.isEmpty()) {
 				time++;
