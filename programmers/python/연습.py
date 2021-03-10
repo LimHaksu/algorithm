@@ -211,3 +211,76 @@ print(list(dq))
 
 var = [1,2,3]
 var[(0//2)%5]
+
+my_set = set({1,2,3})
+my_set.add(1)
+
+print(my_set)
+
+if 4 not in my_set:
+    print('ok')
+
+my_map = {}
+my_map['key'] = 'value'
+print(my_map)
+
+if 'key' in my_map:
+    print('ok2')
+
+for key in my_map:
+    print(key, my_map[key])
+
+from collections import deque
+stack = deque()
+stack.append(1)
+stack.append(2)
+print(stack[0])
+
+arr = [{'num1':1, 'num2':2},{'num1':1, 'num2':1}]
+print(arr)
+
+print(arr)
+a = 'abc'
+b = 'abc'
+print( a  == b)
+
+import heapq
+
+hq = []
+
+class Obj:
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
+    def __lt__(self, other):
+        if self.num1 < other.num1:
+            return True
+        elif self.num1 > other.num1:
+            return False
+        else:
+            return self.num2 > other.num2
+    def __repr__(self):
+        return '{{num1: {}, num2: {}}}'.format(self.num1, self.num2)
+
+obj2 = Obj(2,1)
+obj1 = Obj(1,2)
+
+from pprint import pprint
+heapq.heappush(hq, obj2)
+heapq.heappush(hq, obj1)
+pprint(hq)
+
+arr = [obj2, obj1]
+print(arr)
+
+print(sorted(arr))
+
+from itertools import permutations, combinations
+items = ['A', 'B', 'C']
+print(list(permutations(items, 2))) # items의 모든 원소를 가지고 순열을 만든다.
+print(list(combinations(items,2)))
+
+hq = []
+heapq.heappush(hq, (-1,1))
+print(hq)
+print(hq[0][1])
