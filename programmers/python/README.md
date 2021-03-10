@@ -1,35 +1,40 @@
 ### 파이썬 알고리즘용 도구들...
 
 ## Array
+
 ```python
 // n행 m열 배열 생성
 arr = [[0 for j in range(m)] for i in range(n)]
 ```
 
 ## set
+
 ```python
-const my_set = set();  
+const my_set = set();
 
-set.add(e);  
-  
-set.remove(e);  
+my_set.add(e);
 
-if e in my_set:  
-    # todo...  
+my_set.remove(e);
+
+if e in my_set:
+    # todo...
 
 if e not in my_set:
 	# todo...
-  
+
 for e in my_set:
     # todo...
+    
+len(my_set)
 ```
 
 ## map
+
 ```python
 my_map = {}
 
 my_map[key] = value
-  
+
 a = my_map[key]
 
 if key in my_map:
@@ -40,9 +45,12 @@ if key not in my_map:
 
 for key in my_map:
     # todo..
+    
+len(my_map)
 ```
 
 ## stack
+
 ```python
 from collections import deque
 stack = deque()
@@ -52,9 +60,12 @@ stack.append(e)
 top = stack.pop()
 
 top = stack[-1]
+
+len(stack)
 ```
 
 ## queue
+
 ```python
 from collections import deque
 queue = deque()
@@ -64,9 +75,12 @@ queue.append(e)
 front = queue.popleft()
 
 front = queue[0]
+
+len(queue)
 ```
 
 ## priority queue
+
 ```python
 import heapq # 기본적으로 min heap
 
@@ -105,9 +119,18 @@ heapq.heappush(hq, (-num, num))
 top = heapq.heapop(hq)[1]
 
 top = hq[0][1]
+
+# 기존 배열이 주어졌을 경우 바로 heap구조로 바꿔서 사용 가능
+arr = [5,4,3,2,1]
+heapq.heapify(arr) # min heap [1,2,3,5,4]
+
+arr = [1,2,3,4,5]
+arr = list(map(lambda e: (-e,e), arr))
+heapq.heapify(arr)  # max heap [(-5, 5), (-4, 4), (-3, 3), (-1, 1), (-2, 2)]
 ```
 
 ## sort, sorted
+
 ```python
 arr = [{num1:1, num2:2},{num1:1, num2:1}]
 # num1 내림차순정렬, num1이 같으면 num2 오름차순 정렬
@@ -125,6 +148,7 @@ sorted(arr)
 ```
 
 ## string compare
+
 ```python
 a = 'abc'
 b = 'abd'
@@ -134,6 +158,20 @@ a > b // False
 a == c // True
 ```
 
+## string replace
+
+```python
+s = 'HeLlo'
+s = ''.join( (s[:2], 'l', s[2+1:]) ) # 'hello'
+```
+
+## string reverse
+
+```python
+s = 'Hello'
+s = s[::-1] # 'olleH'
+```
+
 ## permutation, combination
 
 ```python
@@ -141,9 +179,9 @@ from itertools import permutations, combinations
 items = ['A', 'B', 'C']
 
 # items의 원소 중 2개만 뽑아서 순열을 만든다. 두 번째 파라미터 없으면 전체에 대하여
-for permu in permutations(items, 2): 
+for permu in permutations(items, 2):
     # todo...
-    
+
 # items의 원소 중 2개만 뽑아서 조합을 만든다. 두 번째 파라미터 없으면 전체에 대하여
 for combi in combinations(items, 2):
     # todo...
@@ -154,6 +192,9 @@ for combi in combinations(items, 2):
 ```python
 arr = [1,2,3]
 sum(arr) # 6
+sum([]) # 0
+
+# min, max는 빈 배열에서 호출하면 에러나므로 주의
 min(arr) # 1
 max(arr) # 3
 ```
