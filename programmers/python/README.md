@@ -163,6 +163,8 @@ a == c // True
 ```python
 s = 'HeLlo'
 s = ''.join( (s[:2], 'l', s[2+1:]) ) # 'hello'
+
+s = s.replace('L', 'l') # 해당 문자 전체 치환 후 다시 대입 필요함
 ```
 
 ## string reverse

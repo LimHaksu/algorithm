@@ -284,3 +284,7 @@ hq = []
 heapq.heappush(hq, (-1,1))
 print(hq)
 print(hq[0][1])
+
+m = 4
+n = 2
+print([(r,c) for r in range(n) for c in range(m)])
