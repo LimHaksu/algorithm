@@ -147,6 +147,8 @@ arr.sort() # [obj1, obj2]
 sorted(arr)
 ```
 
+
+
 ## string compare
 
 ```python
@@ -174,6 +176,32 @@ s = 'Hello'
 s = s[::-1] # 'olleH'
 ```
 
+## regular expression
+
+```python
+import re
+
+splited = re.compile('[ ,]').split(string) # regex 조건에 맞게 split
+```
+
+## upper, lower, caapitalize
+
+```python
+string = 'this is a string'
+string = string.upper() # 'THIS IS A STRING'
+string = string.lower()
+```
+
+## string split
+
+```python
+string = 'this is a string'
+splited = [c for c in string] # '' 로는 split 안됨
+splited = string.split(' ')
+```
+
+
+
 ## permutation, combination
 
 ```python
@@ -184,7 +212,7 @@ items = ['A', 'B', 'C']
 for permu in permutations(items, 2):
     # todo...
 
-# items의 원소 중 2개만 뽑아서 조합을 만든다. 두 번째 파라미터 없으면 전체에 대하여
+# items의 원소 중 2개만 뽑아서 조합을 만든다. 두 번째 파라미터 필수
 for combi in combinations(items, 2):
     # todo...
 ```
