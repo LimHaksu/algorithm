@@ -288,3 +288,12 @@ print(hq[0][1])
 m = 4
 n = 2
 print([(r,c) for r in range(n) for c in range(m)])
+
+
+arr = [{'num1':1, 'num2':0},{'num1':2, 'num2':1},{'num1':2, 'num2':2}]
+# num1 내림차순정렬, num1이 같으면 num2 오름차순 정렬
+# 주의 : 우선 순위 높은 정렬을 이후에 해야함
+arr.sort(key=lambda e: e['num2'])
+arr.sort(key=lambda e: e['num1'], reverse=True)
+
+print(arr)

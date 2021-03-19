@@ -134,8 +134,9 @@ heapq.heapify(arr)  # max heap [(-5, 5), (-4, 4), (-3, 3), (-1, 1), (-2, 2)]
 ```python
 arr = [{num1:1, num2:2},{num1:1, num2:1}]
 # num1 내림차순정렬, num1이 같으면 num2 오름차순 정렬
-arr.sort(key=lambda e: e['num1'], reverse=True)
+# 주의 : 우선 순위 높은 정렬을 이후에 해야함
 arr.sort(key=lambda e: e['num2'])
+arr.sort(key=lambda e: e['num1'], reverse=True)
 
 # priority queue 처럼 __lt__ 정의된 클래스 만들어서 정렬도 가능
 obj2 = Obj(2,1)
